@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Simple Flask App</title>
+        <link rel="shortcut icon" href="{{url_for('static', filename='favicon.png')}}" type="image/x-icon">
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form method="POST" action="/validity">
+            username <input type="text" name="name-input"><br>
+            password <input type="password" name="name-password"><br>
+            <button type="submit">Submit</button>
+        </form>
+        <h2>New User : </h2>
+        <button type="submit">Register</button>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endwith %}
+    </body>
+</html>
